@@ -34,7 +34,7 @@ export default function RootLayout({
       <body>
         <Sidebar />
 
-        <main className="w-full xl:ml-[15vw] xl:w-[85vw]">
+        <main className="w-full xl:ml-[15%] xl:w-[85%]">
           <div
             id="topbar"
             className="flex items-center justify-between gap-8 px-6 py-2"

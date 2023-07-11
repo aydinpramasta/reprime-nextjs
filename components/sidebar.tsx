@@ -19,7 +19,7 @@ export default function Sidebar() {
   return (
     <nav
       id="sidebar"
-      className="fixed left-0 top-0 z-40 hidden h-screen w-[15vw] flex-col overflow-y-auto overflow-x-hidden rounded-r-2xl bg-[#222A3C] p-4 text-sm text-white xl:flex"
+      className="fixed left-0 top-0 z-40 hidden h-screen w-[15%] flex-col overflow-y-auto overflow-x-hidden rounded-r-2xl bg-[#222A3C] p-4 text-sm text-white xl:flex"
     >
       <div className="relative z-10 my-6 flex items-center justify-center">
         <a href="#" className="mr-8 flex gap-3">
