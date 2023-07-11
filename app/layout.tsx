@@ -3,7 +3,7 @@ import React from "react";
 import { SearchNormal1 } from "iconsax-react";
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans, Urbanist } from "next/font/google";
-import Sidebar from "@/components/sidebar";
+import Sidebar from "@/components/sidebar-nav";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
