@@ -14,7 +14,11 @@ import {
   Wallet3,
 } from "iconsax-react";
 import Image from "next/image";
-import { SidebarNavItem, SidebarNavItemMultilevel } from "./sidebar-nav-item";
+import {
+  SidebarNavItem,
+  SidebarNavItemMultilevel,
+  SidebarNavItemMultilevelLink,
+} from "./sidebar-nav-item";
 
 export default function Sidebar() {
   return (
@@ -50,15 +54,12 @@ export default function Sidebar() {
           text="Karyawan"
           isActive={true}
         >
-          <a href="#" className="font-semibold">
+          <SidebarNavItemMultilevelLink href="#" isActive={true}>
             Data Karyawan
-          </a>
-          <a
-            href="#"
-            className="opacity-75 transition-all duration-500 hover:font-semibold hover:opacity-100"
-          >
+          </SidebarNavItemMultilevelLink>
+          <SidebarNavItemMultilevelLink href="#" isActive={false}>
             Kontrak Kerja
-          </a>
+          </SidebarNavItemMultilevelLink>
         </SidebarNavItemMultilevel>
 
         <SidebarNavItemMultilevel

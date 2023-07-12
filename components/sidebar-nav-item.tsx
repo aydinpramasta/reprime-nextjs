@@ -17,6 +17,12 @@ type SidebarNavItemMultilevelProps = {
   children: ReactNode;
 };
 
+type SidebarNavItemMultilevelLinkProps = {
+  href: string;
+  isActive: boolean;
+  children: string;
+};
+
 export function SidebarNavItem({
   Icon,
   text,
@@ -73,5 +79,24 @@ export function SidebarNavItemMultilevel({
         <div className="m-6 flex flex-col gap-4">{children}</div>
       ) : null}
     </div>
+  );
+}
+
+export function SidebarNavItemMultilevelLink({
+  href,
+  isActive,
+  children,
+}: SidebarNavItemMultilevelLinkProps) {
+  return (
+    <Link
+      href={href}
+      className={cn(
+        isActive
+          ? "font-semibold"
+          : "opacity-75 transition-all duration-500 hover:font-semibold hover:opacity-100"
+      )}
+    >
+      {children}
+    </Link>
   );
 }
