@@ -1,5 +1,6 @@
 "use client";
 
+import { Capsule, CapsuleItem } from "@/components/capsule";
 import Sidebar from "@/components/sidebar-nav";
 import {
   Topbar,
@@ -76,22 +77,12 @@ export default function EmployeeLayout({ children }: { children: ReactNode }) {
           className="space-y-6 rounded-t-[40px] bg-[#F6F6F6] p-6"
         >
           <div className="space-y-6 rounded-[30px] bg-white p-6 text-sm">
-            <div className="overflow-x-auto pb-4 sm:pb-0">
-              <div className="flex w-fit gap-0.5 rounded-full bg-[#EEEEEE] p-0.5 text-white">
-                <button className="rounded-full bg-[#131B2D] px-5 py-3 text-white transition duration-300 hover:bg-white hover:text-[#131B2D]">
-                  Area
-                </button>
-                <button className="rounded-full px-5 py-3 text-[#848484] transition duration-300 hover:bg-white">
-                  Lokasi
-                </button>
-                <button className="rounded-full px-5 py-3 text-[#848484] transition duration-300 hover:bg-white">
-                  Kantor
-                </button>
-                <button className="rounded-full px-5 py-3 text-[#848484] transition duration-300 hover:bg-white">
-                  Divisi
-                </button>
-              </div>
-            </div>
+            <Capsule>
+              <CapsuleItem isActive={true}>Area</CapsuleItem>
+              <CapsuleItem isActive={false}>Lokasi</CapsuleItem>
+              <CapsuleItem isActive={false}>Kantor</CapsuleItem>
+              <CapsuleItem isActive={false}>Divisi</CapsuleItem>
+            </Capsule>
 
             <div className="flex w-full gap-4 overflow-x-auto whitespace-nowrap pb-4 font-urbanist text-white 2xl:pb-0">
               <div className="flex items-center gap-3 rounded-full bg-[#62C451] px-7 py-2">
