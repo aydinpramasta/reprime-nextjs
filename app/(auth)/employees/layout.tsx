@@ -14,6 +14,12 @@ import {
 import { CloseCircle, SearchNormal1 } from "iconsax-react";
 import { ReactNode, useState } from "react";
 import { usePathname } from "next/navigation";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 export default function EmployeeLayout({ children }: { children: ReactNode }) {
   const pathname = usePathname();
@@ -69,7 +75,23 @@ export default function EmployeeLayout({ children }: { children: ReactNode }) {
 
           <button type="button">Import</button>
 
-          <button type="button">Bulk Action</button>
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <button type="button" className="outline-none">
+                Bulk Action
+              </button>
+            </DropdownMenuTrigger>
+
+            <DropdownMenuContent className="min-w-[150px]">
+              <DropdownMenuItem>
+                <form action="#">
+                  <button type="submit" className="text-[#B93F61]">
+                    Delete Karyawan
+                  </button>
+                </form>
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
 
           <TopbarNavLink href="#" isActive={false}>
             Tambah Karyawan
