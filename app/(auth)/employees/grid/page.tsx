@@ -223,9 +223,14 @@ export default function EmployeesGrid() {
                   </button>
                 </DropdownMenuTrigger>
 
-                <DropdownMenuContent className="min-w-[150px]" align="end">
+                <DropdownMenuContent
+                  className="min-w-[150px] text-end"
+                  align="end"
+                >
                   <DropdownMenuItem>
-                    <Link href="#">Payroll</Link>
+                    <Link href="#" className="block w-full">
+                      Payroll
+                    </Link>
                   </DropdownMenuItem>
                   <DropdownMenuItem>
                     <form action="#">
