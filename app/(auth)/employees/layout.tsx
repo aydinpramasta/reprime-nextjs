@@ -1,6 +1,7 @@
 "use client";
 
 import { Capsule, CapsuleItem } from "@/components/capsule";
+import { Stats, StatsItem } from "@/components/stats";
 import {
   Topbar,
   TopbarNav,
@@ -80,37 +81,18 @@ export default function EmployeeLayout({ children }: { children: ReactNode }) {
             <CapsuleItem isActive={false}>Divisi</CapsuleItem>
           </Capsule>
 
-          <div className="flex w-full gap-4 overflow-x-auto whitespace-nowrap pb-4 font-urbanist text-white 2xl:pb-0">
-            <div className="flex items-center gap-3 rounded-full bg-[#62C451] px-7 py-2">
-              <span className="font-medium">Karyawan Tetap</span>
-              <span className="text-lg font-extrabold">25</span>
-            </div>
-
-            <div className="flex items-center gap-3 rounded-full bg-[#FAC25C] px-7 py-2">
-              <span className="font-medium">Karyawan Kontrak</span>
-              <span className="text-lg font-extrabold">25</span>
-            </div>
-
-            <div className="flex items-center gap-3 rounded-full bg-[#FA815A] px-7 py-2">
-              <span className="font-medium">Karyawan Freelance</span>
-              <span className="text-lg font-extrabold">20</span>
-            </div>
-
-            <div className="flex items-center gap-3 rounded-full bg-[#8145F4] px-7 py-2">
-              <span className="font-medium">Karyawan Magang</span>
-              <span className="text-lg font-extrabold">20</span>
-            </div>
-
-            <div className="flex items-center gap-3 rounded-full bg-[#1F3775] px-7 py-2">
-              <span className="font-medium">Karyawan Harian Lepas</span>
-              <span className="text-lg font-extrabold">10</span>
-            </div>
-
-            <div className="flex items-center gap-3 rounded-full bg-[#B93F61] px-7 py-2">
-              <span className="font-medium">Karyawan Tidak Aktif</span>
-              <span className="text-lg font-extrabold">10</span>
-            </div>
-          </div>
+          <Stats>
+            <StatsItem color="green" text="Karyawan Tetap" count={25} />
+            <StatsItem color="yellow" text="Karyawan Kontrak" count={25} />
+            <StatsItem color="orange" text="Karyawan Freelance" count={20} />
+            <StatsItem color="purple" text="Karyawan Magang" count={20} />
+            <StatsItem
+              color="darkBlue"
+              text="Karyawan Harian Lepas"
+              count={10}
+            />
+            <StatsItem color="red" text="Karyawan Tidak Aktif" count={10} />
+          </Stats>
         </div>
 
         {children}
