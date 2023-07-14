@@ -13,8 +13,10 @@ import {
 } from "@/components/topbar";
 import { CloseCircle, SearchNormal1 } from "iconsax-react";
 import { ReactNode, useState } from "react";
+import { usePathname } from "next/navigation";
 
 export default function EmployeeLayout({ children }: { children: ReactNode }) {
+  const pathname = usePathname();
   const [search, setSearch] = useState("");
 
   function searchInputHandler(event: React.FormEvent<HTMLInputElement>) {
@@ -45,11 +47,17 @@ export default function EmployeeLayout({ children }: { children: ReactNode }) {
         </TopbarSearchForm>
 
         <TopbarNav>
-          <TopbarNavLink href="#" isActive={true}>
+          <TopbarNavLink
+            href="/employees/grid"
+            isActive={pathname === "/employees/grid"}
+          >
             Grid
           </TopbarNavLink>
 
-          <TopbarNavLink href="#" isActive={false}>
+          <TopbarNavLink
+            href="/employees/list"
+            isActive={pathname === "/employees/list"}
+          >
             List
           </TopbarNavLink>
 
