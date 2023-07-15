@@ -1,3 +1,4 @@
+import Pagination from "@/components/pagination";
 import {
   Card,
   CardContent,
@@ -29,178 +30,206 @@ export default function EmployeesGrid() {
     division: string;
   };
 
-  const employees: Employee[] = [
-    {
-      id: 1,
-      avatar: avatarPlaceholder,
-      name: "Syafie Muhammad",
-      identifier: "TKI-MOD-0004",
-      position: "BE DEVELOPER",
-      status: "Harian Lepas",
-      office: "Modena Kuningan",
-      salary: "3.500.000",
-      division: "DEVELOPER",
-    },
-    {
-      id: 2,
-      avatar: avatarPlaceholder,
-      name: "Savannah Nguyen",
-      identifier: "TKI-MOD-0004",
-      position: "BE DEVELOPER",
-      status: "Harian Lepas",
-      office: "Modena Kuningan",
-      salary: "3.500.000",
-      division: "DEVELOPER",
-    },
-    {
-      id: 3,
-      avatar: avatarPlaceholder,
-      name: "Ralph Edwars",
-      identifier: "TKI-MOD-0004",
-      position: "BE DEVELOPER",
-      status: "Harian Lepas",
-      office: "Modena Kuningan",
-      salary: "3.500.000",
-      division: "DEVELOPER",
-    },
-    {
-      id: 4,
-      avatar: avatarPlaceholder,
-      name: "Guy Hawkins",
-      identifier: "TKI-MOD-0004",
-      position: "BE DEVELOPER",
-      status: "Harian Lepas",
-      office: "Modena Kuningan",
-      salary: "3.500.000",
-      division: "DEVELOPER",
-    },
-    {
-      id: 5,
-      avatar: avatarPlaceholder,
-      name: "Guy Hawkins",
-      identifier: "TKI-MOD-0004",
-      position: "BE DEVELOPER",
-      status: "Harian Lepas",
-      office: "Modena Kuningan",
-      salary: "3.500.000",
-      division: "DEVELOPER",
-    },
-    {
-      id: 6,
-      avatar: avatarPlaceholder,
-      name: "Syafie Muhammad",
-      identifier: "TKI-MOD-0004",
-      position: "BE DEVELOPER",
-      status: "Harian Lepas",
-      office: "Modena Kuningan",
-      salary: "3.500.000",
-      division: "DEVELOPER",
-    },
-    {
-      id: 7,
-      avatar: avatarPlaceholder,
-      name: "Savannah Nguyen",
-      identifier: "TKI-MOD-0004",
-      position: "BE DEVELOPER",
-      status: "Harian Lepas",
-      office: "Modena Kuningan",
-      salary: "3.500.000",
-      division: "DEVELOPER",
-    },
-    {
-      id: 8,
-      avatar: avatarPlaceholder,
-      name: "Ralph Edwars",
-      identifier: "TKI-MOD-0004",
-      position: "BE DEVELOPER",
-      status: "Harian Lepas",
-      office: "Modena Kuningan",
-      salary: "3.500.000",
-      division: "DEVELOPER",
-    },
-    {
-      id: 9,
-      avatar: avatarPlaceholder,
-      name: "Guy Hawkins",
-      identifier: "TKI-MOD-0004",
-      position: "BE DEVELOPER",
-      status: "Harian Lepas",
-      office: "Modena Kuningan",
-      salary: "3.500.000",
-      division: "DEVELOPER",
-    },
-    {
-      id: 10,
-      avatar: avatarPlaceholder,
-      name: "Guy Hawkins",
-      identifier: "TKI-MOD-0004",
-      position: "BE DEVELOPER",
-      status: "Harian Lepas",
-      office: "Modena Kuningan",
-      salary: "3.500.000",
-      division: "DEVELOPER",
-    },
-    {
-      id: 11,
-      avatar: avatarPlaceholder,
-      name: "Syafie Muhammad",
-      identifier: "TKI-MOD-0004",
-      position: "BE DEVELOPER",
-      status: "Harian Lepas",
-      office: "Modena Kuningan",
-      salary: "3.500.000",
-      division: "DEVELOPER",
-    },
-    {
-      id: 12,
-      avatar: avatarPlaceholder,
-      name: "Savannah Nguyen",
-      identifier: "TKI-MOD-0004",
-      position: "BE DEVELOPER",
-      status: "Harian Lepas",
-      office: "Modena Kuningan",
-      salary: "3.500.000",
-      division: "DEVELOPER",
-    },
-    {
-      id: 13,
-      avatar: avatarPlaceholder,
-      name: "Ralph Edwars",
-      identifier: "TKI-MOD-0004",
-      position: "BE DEVELOPER",
-      status: "Harian Lepas",
-      office: "Modena Kuningan",
-      salary: "3.500.000",
-      division: "DEVELOPER",
-    },
-    {
-      id: 14,
-      avatar: avatarPlaceholder,
-      name: "Guy Hawkins",
-      identifier: "TKI-MOD-0004",
-      position: "BE DEVELOPER",
-      status: "Harian Lepas",
-      office: "Modena Kuningan",
-      salary: "3.500.000",
-      division: "DEVELOPER",
-    },
-    {
-      id: 15,
-      avatar: avatarPlaceholder,
-      name: "Guy Hawkins",
-      identifier: "TKI-MOD-0004",
-      position: "BE DEVELOPER",
-      status: "Harian Lepas",
-      office: "Modena Kuningan",
-      salary: "3.500.000",
-      division: "DEVELOPER",
-    },
-  ];
+  type EmployeeGridApi = {
+    total: number;
+    per_page: number;
+    current_page: number;
+    last_page: number;
+    first_page_url: string;
+    last_page_url: string;
+    next_page_url: string | null;
+    prev_page_url: string | null;
+    path: string;
+    from: number;
+    to: number;
+    data: Employee[];
+  };
+
+  const employees: EmployeeGridApi = {
+    total: 50,
+    per_page: 15,
+    current_page: 1,
+    last_page: 5,
+    first_page_url: "http://example.com/api/v1/employees/grid?page=1",
+    last_page_url: "http://example.com/api/v1/employees/grid?page=5",
+    next_page_url: "http://example.com/api/v1/employees/grid?page=2",
+    prev_page_url: null,
+    path: "http://example.com",
+    from: 1,
+    to: 15,
+    data: [
+      {
+        id: 1,
+        avatar: avatarPlaceholder,
+        name: "Syafie Muhammad",
+        identifier: "TKI-MOD-0004",
+        position: "BE DEVELOPER",
+        status: "Harian Lepas",
+        office: "Modena Kuningan",
+        salary: "3.500.000",
+        division: "DEVELOPER",
+      },
+      {
+        id: 2,
+        avatar: avatarPlaceholder,
+        name: "Savannah Nguyen",
+        identifier: "TKI-MOD-0004",
+        position: "BE DEVELOPER",
+        status: "Harian Lepas",
+        office: "Modena Kuningan",
+        salary: "3.500.000",
+        division: "DEVELOPER",
+      },
+      {
+        id: 3,
+        avatar: avatarPlaceholder,
+        name: "Ralph Edwars",
+        identifier: "TKI-MOD-0004",
+        position: "BE DEVELOPER",
+        status: "Harian Lepas",
+        office: "Modena Kuningan",
+        salary: "3.500.000",
+        division: "DEVELOPER",
+      },
+      {
+        id: 4,
+        avatar: avatarPlaceholder,
+        name: "Guy Hawkins",
+        identifier: "TKI-MOD-0004",
+        position: "BE DEVELOPER",
+        status: "Harian Lepas",
+        office: "Modena Kuningan",
+        salary: "3.500.000",
+        division: "DEVELOPER",
+      },
+      {
+        id: 5,
+        avatar: avatarPlaceholder,
+        name: "Guy Hawkins",
+        identifier: "TKI-MOD-0004",
+        position: "BE DEVELOPER",
+        status: "Harian Lepas",
+        office: "Modena Kuningan",
+        salary: "3.500.000",
+        division: "DEVELOPER",
+      },
+      {
+        id: 6,
+        avatar: avatarPlaceholder,
+        name: "Syafie Muhammad",
+        identifier: "TKI-MOD-0004",
+        position: "BE DEVELOPER",
+        status: "Harian Lepas",
+        office: "Modena Kuningan",
+        salary: "3.500.000",
+        division: "DEVELOPER",
+      },
+      {
+        id: 7,
+        avatar: avatarPlaceholder,
+        name: "Savannah Nguyen",
+        identifier: "TKI-MOD-0004",
+        position: "BE DEVELOPER",
+        status: "Harian Lepas",
+        office: "Modena Kuningan",
+        salary: "3.500.000",
+        division: "DEVELOPER",
+      },
+      {
+        id: 8,
+        avatar: avatarPlaceholder,
+        name: "Ralph Edwars",
+        identifier: "TKI-MOD-0004",
+        position: "BE DEVELOPER",
+        status: "Harian Lepas",
+        office: "Modena Kuningan",
+        salary: "3.500.000",
+        division: "DEVELOPER",
+      },
+      {
+        id: 9,
+        avatar: avatarPlaceholder,
+        name: "Guy Hawkins",
+        identifier: "TKI-MOD-0004",
+        position: "BE DEVELOPER",
+        status: "Harian Lepas",
+        office: "Modena Kuningan",
+        salary: "3.500.000",
+        division: "DEVELOPER",
+      },
+      {
+        id: 10,
+        avatar: avatarPlaceholder,
+        name: "Guy Hawkins",
+        identifier: "TKI-MOD-0004",
+        position: "BE DEVELOPER",
+        status: "Harian Lepas",
+        office: "Modena Kuningan",
+        salary: "3.500.000",
+        division: "DEVELOPER",
+      },
+      {
+        id: 11,
+        avatar: avatarPlaceholder,
+        name: "Syafie Muhammad",
+        identifier: "TKI-MOD-0004",
+        position: "BE DEVELOPER",
+        status: "Harian Lepas",
+        office: "Modena Kuningan",
+        salary: "3.500.000",
+        division: "DEVELOPER",
+      },
+      {
+        id: 12,
+        avatar: avatarPlaceholder,
+        name: "Savannah Nguyen",
+        identifier: "TKI-MOD-0004",
+        position: "BE DEVELOPER",
+        status: "Harian Lepas",
+        office: "Modena Kuningan",
+        salary: "3.500.000",
+        division: "DEVELOPER",
+      },
+      {
+        id: 13,
+        avatar: avatarPlaceholder,
+        name: "Ralph Edwars",
+        identifier: "TKI-MOD-0004",
+        position: "BE DEVELOPER",
+        status: "Harian Lepas",
+        office: "Modena Kuningan",
+        salary: "3.500.000",
+        division: "DEVELOPER",
+      },
+      {
+        id: 14,
+        avatar: avatarPlaceholder,
+        name: "Guy Hawkins",
+        identifier: "TKI-MOD-0004",
+        position: "BE DEVELOPER",
+        status: "Harian Lepas",
+        office: "Modena Kuningan",
+        salary: "3.500.000",
+        division: "DEVELOPER",
+      },
+      {
+        id: 15,
+        avatar: avatarPlaceholder,
+        name: "Guy Hawkins",
+        identifier: "TKI-MOD-0004",
+        position: "BE DEVELOPER",
+        status: "Harian Lepas",
+        office: "Modena Kuningan",
+        salary: "3.500.000",
+        division: "DEVELOPER",
+      },
+    ],
+  };
 
   return (
     <div id="content" className="space-y-6">
       <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
-        {employees.map((employee: Employee) => (
+        {employees.data.map((employee: Employee) => (
           <Card key={employee.id}>
             <CardHeader>
               <div className="flex items-start gap-3">
@@ -292,26 +321,10 @@ export default function EmployeesGrid() {
         ))}
       </div>
 
-      <div className="flex w-fit flex-wrap items-center justify-between gap-x-8 gap-y-4 font-urbanist">
-        <div className="flex gap-2">
-          <a href="#" className="rounded-full bg-[#F6F6F6] p-2">
-            <ArrowLeft className="opacity-75" size="20" />
-          </a>
-          <a href="#" className="rounded-full bg-[#F6F6F6] p-2">
-            <ArrowRight className="opacity-75" size="20" />
-          </a>
-        </div>
-
-        <div className="flex items-center gap-2 text-sm">
-          <span>Page</span>
-          <span className="rounded-lg border border-[#EEEEEE] bg-white px-3 py-1 font-bold">
-            1
-          </span>
-          <span>of 5</span>
-        </div>
-
-        <span className="text-[#848484]">Display 1 to 15 of 50 data.</span>
-      </div>
+      <Pagination
+        className="w-fit flex flex-wrap items-center justify-between"
+        {...employees}
+      />
     </div>
   );
 }
