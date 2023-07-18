@@ -1,5 +1,11 @@
 import Pagination from "@/components/pagination";
 import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import {
   Table,
   TableBody,
   TableCell,
@@ -277,14 +283,46 @@ export default function EmployeesList() {
                   <span className="text-xs">{employee.status}</span>
                 </TableCell>
                 <TableCell>
-                  <button className="flex items-center gap-2 rounded-[40px] border border-[#EEEEEE] px-5 py-3 text-xs shadow-md">
-                    <span>Action</span>
-                    <ArrowDown2
-                      className="min-w-[15px]"
-                      size="15"
-                      color="#000000"
-                    />
-                  </button>
+                  <DropdownMenu>
+                    <DropdownMenuTrigger asChild>
+                      <button className="flex items-center gap-2 rounded-[40px] border border-[#EEEEEE] outline-none px-5 py-3 text-xs shadow-md">
+                        <span>Action</span>
+                        <ArrowDown2
+                          className="min-w-[15px]"
+                          size="15"
+                          color="#000000"
+                        />
+                      </button>
+                    </DropdownMenuTrigger>
+
+                    <DropdownMenuContent
+                      className="min-w-[150px] text-end"
+                      align="start"
+                    >
+                      <DropdownMenuItem>
+                        <Link href="#" className="block w-full">
+                          Payroll
+                        </Link>
+                      </DropdownMenuItem>
+                      <DropdownMenuItem>
+                        <Link href="#" className="block w-full">
+                          Detail Karyawan
+                        </Link>
+                      </DropdownMenuItem>
+                      <DropdownMenuItem>
+                        <Link href="#" className="block w-full">
+                          Edit Karyawan
+                        </Link>
+                      </DropdownMenuItem>
+                      <DropdownMenuItem>
+                        <form action="#">
+                          <button type="submit" className="text-[#B93F61]">
+                            Delete Karyawan
+                          </button>
+                        </form>
+                      </DropdownMenuItem>
+                    </DropdownMenuContent>
+                  </DropdownMenu>
                 </TableCell>
               </TableRow>
             ))}
