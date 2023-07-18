@@ -3,7 +3,7 @@ import { ArrowLeft, ArrowRight } from "iconsax-react";
 import Link from "next/link";
 
 type PaginationProps = {
-  className: string;
+  className?: string;
   total: number;
   current_page: number;
   last_page: number;

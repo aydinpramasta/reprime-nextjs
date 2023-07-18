@@ -1,3 +1,4 @@
+import Pagination from "@/components/pagination";
 import {
   Table,
   TableBody,
@@ -55,7 +56,7 @@ export default function EmployeesList() {
     prev_page_url: null,
     path: "http://example.com",
     from: 1,
-    to: 15,
+    to: 10,
     data: [
       {
         id: 1,
@@ -290,26 +291,7 @@ export default function EmployeesList() {
           </TableBody>
         </Table>
 
-        <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-4 font-urbanist">
-          <div className="flex gap-2">
-            <Link href="#" className="rounded-full bg-[#F6F6F6] p-2">
-              <ArrowLeft size="20" color="#848484" />
-            </Link>
-            <Link href="#" className="rounded-full bg-[#F6F6F6] p-2">
-              <ArrowRight size="20" color="#848484" />
-            </Link>
-          </div>
-
-          <div className="flex items-center gap-2 text-sm">
-            <span>Page</span>
-            <span className="rounded-lg border border-[#EEEEEE] bg-white px-3 py-1 font-bold">
-              1
-            </span>
-            <span>of 5</span>
-          </div>
-
-          <span className="text-[#848484]">Display 1 to 15 of 50 data.</span>
-        </div>
+        <Pagination {...employees} />
       </div>
     </div>
   );
