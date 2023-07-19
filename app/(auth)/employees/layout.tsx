@@ -11,7 +11,7 @@ import {
   TopbarSearchInput,
   TopbarTitle,
 } from "@/components/topbar";
-import { CloseCircle, SearchNormal1 } from "iconsax-react";
+import { CloseCircle, ImportCurve, LampOn, SearchNormal1 } from "iconsax-react";
 import { ReactNode, useState } from "react";
 import { usePathname } from "next/navigation";
 import {
@@ -20,6 +20,16 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import {
+  Dialog,
+  DialogClose,
+  DialogContent,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import Link from "next/link";
 
 export default function EmployeeLayout({ children }: { children: ReactNode }) {
   const pathname = usePathname();
@@ -73,7 +83,69 @@ export default function EmployeeLayout({ children }: { children: ReactNode }) {
             Export
           </TopbarNavLink>
 
-          <button type="button">Import</button>
+          <Dialog>
+            <DialogTrigger asChild>
+              <button type="button">Import</button>
+            </DialogTrigger>
+            <DialogContent className="max-w-lg">
+              <DialogHeader>
+                <DialogTitle>Import Data</DialogTitle>
+              </DialogHeader>
+
+              <hr className="my-8" />
+
+              <div className="flex items-center gap-4 w-full rounded-[20px] bg-[#216FED]/10 px-8 py-4">
+                <LampOn size="35" color="#216FED" />
+
+                <div className="flex flex-col gap-2">
+                  <span className="text-sm font-bold text-[#1F3775]">Info</span>
+                  <span className="text-xs">
+                    You could download the sample before import &nbsp;
+                    <Link className="text-[#216FED]" href="#">
+                      Click Here
+                    </Link>
+                  </span>
+                </div>
+              </div>
+
+              <form action="#" className="mt-6 grid gap-6">
+                <div className="grid gap-4">
+                  <label
+                    htmlFor="file"
+                    className="font-urbanist text-sm font-semibold"
+                  >
+                    Upload XLS
+                    <span className="text-[#B93F61]">*</span>
+                  </label>
+
+                  <input
+                    type="file"
+                    name="file"
+                    id="file"
+                    className="rounded-xl border border-[#EEEEEE] bg-white px-[18px] py-3 text-xs text-[#848484]"
+                  />
+                </div>
+
+                <DialogFooter>
+                  <DialogClose>
+                    <button
+                      type="button"
+                      className="rounded-full border border-[#EEEEEE] px-8 py-5 font-urbanist text-sm font-extrabold"
+                    >
+                      CANCEL
+                    </button>
+                  </DialogClose>
+                  <button
+                    type="submit"
+                    className="flex items-center gap-4 rounded-full bg-[#216FED] px-8 py-5 text-sm font-extrabold text-white"
+                  >
+                    <ImportCurve size="20" color="#FFFFFF" />
+                    IMPORT
+                  </button>
+                </DialogFooter>
+              </form>
+            </DialogContent>
+          </Dialog>
 
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
