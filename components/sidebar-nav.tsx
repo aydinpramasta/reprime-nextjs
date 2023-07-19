@@ -20,6 +20,7 @@ import {
   SidebarNavItemMultilevelLink,
 } from "./sidebar-nav-item";
 import { cn } from "@/lib/utils";
+import Link from "next/link";
 
 export default function Sidebar({ className }: { className?: string }) {
   return (
@@ -31,12 +32,12 @@ export default function Sidebar({ className }: { className?: string }) {
       )}
     >
       <div className="relative z-10 my-6 flex items-center justify-center">
-        <a href="#" className="mr-8 flex gap-3">
+        <Link href="#" className="mr-8 flex gap-3">
           <Image width="30" height="30" src={reprimeLogo} alt="Reprime Logo" />
           <h1 className="font-logo text-xl font-semibold tracking-wider">
             REPRIME
           </h1>
-        </a>
+        </Link>
 
         <button className="absolute -right-4 rounded-l-xl border border-[#EEEEEE] bg-white px-1 py-3">
           <HambergerMenu size="25" color="#292D32" variant="Outline" />
@@ -109,19 +110,19 @@ export default function Sidebar({ className }: { className?: string }) {
 
       <div className="z-10 mt-auto flex w-full flex-col gap-4 rounded-xl bg-white/[0.15] p-4 text-sm">
         <div className="font-semibold">
-          <span>Storage:</span>
-          <span className="text-[#76D210]">40MB /3GB</span>
+          <span className="mr-2">Storage:</span>
+          <span className="text-[#76D210]">40MB / 3GB</span>
         </div>
         <div className="flex justify-between">
-          <a href="#" className="flex items-center gap-3">
+          <Link href="#" className="flex items-center gap-3">
             <Clock size="15" />
             <span>History</span>
-          </a>
+          </Link>
           <span>|</span>
-          <a href="#" className="flex items-center gap-3">
+          <Link href="#" className="flex items-center gap-3">
             <Layer size="15" />
             <span>Update</span>
-          </a>
+          </Link>
         </div>
       </div>
 
