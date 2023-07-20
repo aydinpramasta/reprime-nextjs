@@ -4,7 +4,7 @@ import { ReactNode } from "react";
 export default function AuthLayout({ children }: { children: ReactNode }) {
   return (
     <>
-      <Sidebar className="w-[15%]" />
+      <Sidebar className="w-[15vw]" />
       <main className="w-full xl:ml-[15%] xl:w-[85%]">{children}</main>
     </>
   );
