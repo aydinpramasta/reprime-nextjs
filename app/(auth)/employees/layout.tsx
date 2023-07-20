@@ -79,7 +79,190 @@ export default function EmployeeLayout({ children }: { children: ReactNode }) {
             List
           </TopbarNavLink>
 
-          <button type="button">Filter</button>
+          <Dialog>
+            <DialogTrigger asChild>
+              <button type="button">Filter</button>
+            </DialogTrigger>
+            <DialogContent className="max-w-2xl">
+              <DialogHeader>
+                <DialogTitle>Filter</DialogTitle>
+              </DialogHeader>
+
+              <hr className="my-4" />
+
+              <form action="#" className="mt-6 grid gap-6">
+                <div className="grid max-h-[50vh] gap-6 overflow-y-auto pr-4">
+                  <div className="grid gap-4">
+                    <label className="text-sm font-semibold">
+                      Status Karyawan
+                    </label>
+
+                    <div className="grid grid-cols-2 gap-4 font-urbanist text-sm sm:grid-cols-4">
+                      <div className="space-x-4">
+                        <input
+                          type="radio"
+                          name="employee_status"
+                          id="Semua"
+                          value="Semua"
+                        />
+                        <label htmlFor="Semua">Semua</label>
+                      </div>
+
+                      <div className="space-x-4">
+                        <input
+                          type="radio"
+                          name="employee_status"
+                          id="Magang"
+                          value="Magang"
+                        />
+                        <label htmlFor="Magang">Magang</label>
+                      </div>
+
+                      <div className="space-x-4">
+                        <input
+                          type="radio"
+                          name="employee_status"
+                          id="Freelance"
+                          value="Freelance"
+                        />
+                        <label htmlFor="Freelance">Freelance</label>
+                      </div>
+
+                      <div className="space-x-4">
+                        <input
+                          type="radio"
+                          name="employee_status"
+                          id="Tetap"
+                          value="Tetap"
+                        />
+                        <label htmlFor="Tetap">Tetap</label>
+                      </div>
+
+                      <div className="space-x-4">
+                        <input
+                          type="radio"
+                          name="employee_status"
+                          id="Kontrak"
+                          value="Kontrak"
+                        />
+                        <label htmlFor="Kontrak">Kontrak</label>
+                      </div>
+
+                      <div className="space-x-4">
+                        <input
+                          type="radio"
+                          name="employee_status"
+                          id="Harian Lepas"
+                          value="Harian Lepas"
+                        />
+                        <label htmlFor="Harian Lepas">Harian Lepas</label>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="grid gap-4">
+                    <label htmlFor="area" className="text-sm font-semibold">
+                      Area
+                    </label>
+
+                    <select
+                      name="area"
+                      id="area"
+                      className="rounded-xl border border-[#EEEEEE] bg-white px-[18px] py-3 text-xs text-[#848484]"
+                    >
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                    </select>
+                  </div>
+
+                  <div className="grid gap-4">
+                    <label htmlFor="lokasi" className="text-sm font-semibold">
+                      Lokasi Kantor
+                    </label>
+
+                    <select
+                      name="lokasi"
+                      id="lokasi"
+                      className="rounded-xl border border-[#EEEEEE] bg-white px-[18px] py-3 text-xs text-[#848484]"
+                    >
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                    </select>
+                  </div>
+
+                  <div className="grid gap-4">
+                    <label htmlFor="divisi" className="text-sm font-semibold">
+                      Divisi
+                    </label>
+
+                    <select
+                      name="divisi"
+                      id="divisi"
+                      className="rounded-xl border border-[#EEEEEE] bg-white px-[18px] py-3 text-xs text-[#848484]"
+                    >
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                    </select>
+                  </div>
+
+                  <div className="grid gap-4">
+                    <label htmlFor="jabatan" className="text-sm font-semibold">
+                      Jabatan
+                    </label>
+
+                    <select
+                      name="jabatan"
+                      id="jabatan"
+                      className="rounded-xl border border-[#EEEEEE] bg-white px-[18px] py-3 text-xs text-[#848484]"
+                    >
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                    </select>
+                  </div>
+
+                  <div className="grid gap-4">
+                    <label htmlFor="nama" className="text-sm font-semibold">
+                      Nama Karyawan
+                    </label>
+
+                    <select
+                      name="nama"
+                      id="nama"
+                      className="rounded-xl border border-[#EEEEEE] bg-white px-[18px] py-3 text-xs text-[#848484]"
+                    >
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                    </select>
+                  </div>
+                </div>
+
+                <hr />
+
+                <DialogFooter className="flex justify-between">
+                  <button type="button" className="font-bold text-sm">
+                    Reset All Filter
+                  </button>
+
+                  <div className="flex gap-4">
+                    <DialogClose>
+                      <button
+                        type="button"
+                        className="rounded-full border border-[#EEEEEE] px-8 py-5 font-urbanist text-sm font-extrabold"
+                      >
+                        CANCEL
+                      </button>
+                    </DialogClose>
+                    <button
+                      type="submit"
+                      className="flex items-center gap-4 rounded-full bg-[#216FED] px-8 py-5 text-sm font-extrabold text-white"
+                    >
+                      APPLY FILTER
+                    </button>
+                  </div>
+                </DialogFooter>
+              </form>
+            </DialogContent>
+          </Dialog>
 
           <TopbarNavLink href="#" isActive={false}>
             Export
