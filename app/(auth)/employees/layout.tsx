@@ -30,6 +30,8 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import Link from "next/link";
+import { Label } from "@/components/ui/label";
+import { Input } from "@/components/ui/input";
 
 export default function EmployeeLayout({ children }: { children: ReactNode }) {
   const pathname = usePathname();
@@ -110,20 +112,12 @@ export default function EmployeeLayout({ children }: { children: ReactNode }) {
 
               <form action="#" className="mt-6 grid gap-6">
                 <div className="grid gap-4">
-                  <label
-                    htmlFor="file"
-                    className="font-urbanist text-sm font-semibold"
-                  >
+                  <Label htmlFor="file" className="font-urbanist">
                     Upload XLS
-                    <span className="text-[#B93F61]">*</span>
-                  </label>
+                    <span className="ml-1 text-[#B93F61]">*</span>
+                  </Label>
 
-                  <input
-                    type="file"
-                    name="file"
-                    id="file"
-                    className="rounded-xl border border-[#EEEEEE] bg-white px-[18px] py-3 text-xs text-[#848484]"
-                  />
+                  <Input type="file" name="file" id="file" />
                 </div>
 
                 <DialogFooter>
