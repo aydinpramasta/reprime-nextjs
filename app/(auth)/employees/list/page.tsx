@@ -178,7 +178,7 @@ export default function EmployeesList() {
   };
 
   return (
-    <div id="content" className="space-y-6">
+    <>
       <div className="space-y-12 rounded-[30px] bg-white p-6">
         <Table>
           <TableHeader>
@@ -331,6 +331,6 @@ export default function EmployeesList() {
 
         <Pagination {...employees} />
       </div>
-    </div>
+    </>
   );
 }

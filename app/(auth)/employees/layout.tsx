@@ -197,7 +197,9 @@ export default function EmployeeLayout({ children }: { children: ReactNode }) {
           </Stats>
         </div>
 
-        {children}
+        <div id="content" className="space-y-6">
+          {children}
+        </div>
       </section>
     </>
   );

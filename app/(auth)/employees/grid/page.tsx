@@ -227,7 +227,7 @@ export default function EmployeesGrid() {
   };
 
   return (
-    <div id="content" className="space-y-6">
+    <>
       <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
         {employees.data.map((employee: Employee) => (
           <Card key={employee.id}>
@@ -325,6 +325,6 @@ export default function EmployeesGrid() {
         className="w-fit flex flex-wrap items-center justify-between"
         {...employees}
       />
-    </div>
+    </>
   );
 }
