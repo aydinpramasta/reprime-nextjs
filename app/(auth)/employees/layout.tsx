@@ -32,6 +32,7 @@ import {
 import Link from "next/link";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 
 export default function EmployeeLayout({ children }: { children: ReactNode }) {
   const pathname = usePathname();
@@ -97,67 +98,35 @@ export default function EmployeeLayout({ children }: { children: ReactNode }) {
                       Status Karyawan
                     </label>
 
-                    <div className="grid grid-cols-2 gap-4 font-urbanist text-sm sm:grid-cols-4">
-                      <div className="space-x-4">
-                        <input
-                          type="radio"
-                          name="employee_status"
-                          id="Semua"
-                          value="Semua"
-                        />
+                    <RadioGroup className="grid grid-cols-2 gap-4 font-urbanist text-sm sm:grid-cols-4">
+                      <div className="flex items-center space-x-4">
+                        <RadioGroupItem value="Semua" id="Semua" />
                         <label htmlFor="Semua">Semua</label>
                       </div>
-
-                      <div className="space-x-4">
-                        <input
-                          type="radio"
-                          name="employee_status"
-                          id="Magang"
-                          value="Magang"
-                        />
+                      <div className="flex items-center space-x-4">
+                        <RadioGroupItem value="Magang" id="Magang" />
                         <label htmlFor="Magang">Magang</label>
                       </div>
-
-                      <div className="space-x-4">
-                        <input
-                          type="radio"
-                          name="employee_status"
-                          id="Freelance"
-                          value="Freelance"
-                        />
+                      <div className="flex items-center space-x-4">
+                        <RadioGroupItem value="Freelance" id="Freelance" />
                         <label htmlFor="Freelance">Freelance</label>
                       </div>
-
-                      <div className="space-x-4">
-                        <input
-                          type="radio"
-                          name="employee_status"
-                          id="Tetap"
-                          value="Tetap"
-                        />
+                      <div className="flex items-center space-x-4">
+                        <RadioGroupItem value="Tetap" id="Tetap" />
                         <label htmlFor="Tetap">Tetap</label>
                       </div>
-
-                      <div className="space-x-4">
-                        <input
-                          type="radio"
-                          name="employee_status"
-                          id="Kontrak"
-                          value="Kontrak"
-                        />
+                      <div className="flex items-center space-x-4">
+                        <RadioGroupItem value="Kontrak" id="Kontrak" />
                         <label htmlFor="Kontrak">Kontrak</label>
                       </div>
-
-                      <div className="space-x-4">
-                        <input
-                          type="radio"
-                          name="employee_status"
-                          id="Harian Lepas"
+                      <div className="flex items-center space-x-4">
+                        <RadioGroupItem
                           value="Harian Lepas"
+                          id="Harian Lepas"
                         />
                         <label htmlFor="Harian Lepas">Harian Lepas</label>
                       </div>
-                    </div>
+                    </RadioGroup>
                   </div>
 
                   <div className="grid gap-4">
