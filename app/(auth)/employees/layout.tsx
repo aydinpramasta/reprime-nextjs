@@ -94,9 +94,7 @@ export default function EmployeeLayout({ children }: { children: ReactNode }) {
               <form action="#" className="mt-6 grid gap-6">
                 <div className="grid max-h-[50vh] gap-6 overflow-y-auto pr-4">
                   <div className="grid gap-4">
-                    <label className="text-sm font-semibold">
-                      Status Karyawan
-                    </label>
+                    <Label>Status Karyawan</Label>
 
                     <RadioGroup className="grid grid-cols-2 gap-4 font-urbanist text-sm sm:grid-cols-4">
                       <div className="flex items-center space-x-4">
@@ -130,78 +128,53 @@ export default function EmployeeLayout({ children }: { children: ReactNode }) {
                   </div>
 
                   <div className="grid gap-4">
-                    <label htmlFor="area" className="text-sm font-semibold">
-                      Area
-                    </label>
-
-                    <select
+                    <Label htmlFor="area">Area</Label>
+                    <Input
+                      type="text"
                       name="area"
                       id="area"
-                      className="rounded-xl border border-[#EEEEEE] bg-white px-[18px] py-3 text-xs text-[#848484]"
-                    >
-                      <option value="1">1</option>
-                      <option value="2">2</option>
-                    </select>
+                      placeholder="Cari Area"
+                    />
                   </div>
 
                   <div className="grid gap-4">
-                    <label htmlFor="lokasi" className="text-sm font-semibold">
-                      Lokasi Kantor
-                    </label>
-
-                    <select
-                      name="lokasi"
-                      id="lokasi"
-                      className="rounded-xl border border-[#EEEEEE] bg-white px-[18px] py-3 text-xs text-[#848484]"
-                    >
-                      <option value="1">1</option>
-                      <option value="2">2</option>
-                    </select>
+                    <Label htmlFor="location">Lokasi</Label>
+                    <Input
+                      type="text"
+                      name="location"
+                      id="location"
+                      placeholder="Cari Lokasi"
+                    />
                   </div>
 
                   <div className="grid gap-4">
-                    <label htmlFor="divisi" className="text-sm font-semibold">
-                      Divisi
-                    </label>
-
-                    <select
-                      name="divisi"
-                      id="divisi"
-                      className="rounded-xl border border-[#EEEEEE] bg-white px-[18px] py-3 text-xs text-[#848484]"
-                    >
-                      <option value="1">1</option>
-                      <option value="2">2</option>
-                    </select>
+                    <Label htmlFor="division">Divisi</Label>
+                    <Input
+                      type="text"
+                      name="division"
+                      id="division"
+                      placeholder="Cari Divisi"
+                    />
                   </div>
 
                   <div className="grid gap-4">
-                    <label htmlFor="jabatan" className="text-sm font-semibold">
-                      Jabatan
-                    </label>
-
-                    <select
-                      name="jabatan"
-                      id="jabatan"
-                      className="rounded-xl border border-[#EEEEEE] bg-white px-[18px] py-3 text-xs text-[#848484]"
-                    >
-                      <option value="1">1</option>
-                      <option value="2">2</option>
-                    </select>
+                    <Label htmlFor="position">Jabatan</Label>
+                    <Input
+                      type="text"
+                      name="position"
+                      id="position"
+                      placeholder="Cari Jabatan"
+                    />
                   </div>
 
                   <div className="grid gap-4">
-                    <label htmlFor="nama" className="text-sm font-semibold">
-                      Nama Karyawan
-                    </label>
-
-                    <select
-                      name="nama"
-                      id="nama"
-                      className="rounded-xl border border-[#EEEEEE] bg-white px-[18px] py-3 text-xs text-[#848484]"
-                    >
-                      <option value="1">1</option>
-                      <option value="2">2</option>
-                    </select>
+                    <Label htmlFor="name">Nama Karyawan</Label>
+                    <Input
+                      type="text"
+                      name="name"
+                      id="name"
+                      placeholder="Cari Nama Karyawan"
+                    />
                   </div>
                 </div>
 
